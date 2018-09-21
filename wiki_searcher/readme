@@ -1,0 +1,5 @@
+Заменить в библиотеке wikipedia(файл wikipedia.py) строку #389 
+с: 
+    lis = BeautifulSoup(html).find_all('li')
+на:
+    lis = BeautifulSoup(html, "html.parser").find_all('li')
