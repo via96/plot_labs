@@ -1,1 +1,2 @@
-.directory
+*.directory
+__pycache__*
