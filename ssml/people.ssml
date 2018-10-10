@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<speak xmlns="http://www.w3.org/2001/10/synthesis" version="1.1" xml:lang="ru">
+<voice gender="male" age="20">
+
+    <p>
+        <prosody volume="soft" rate="0.9" pitch="-30%">всё так же</prosody>
+        <prosody volume="soft" rate="0.85" pitch="-40%">год за гОдом</prosody><break time="400ms"/>
+        <prosody volume="soft" rate="0.85" pitch="-30%">одни</prosody>
+        <prosody volume="soft" rate="0.85" pitch="-40%">пластИнки крутят,</prosody><break time="400ms"/>
+        <prosody volume="soft" rate="medium" pitch="-30%">и вновь</prosody><break time="10ms"/>
+        <prosody volume="soft" rate="0.9" pitch="-30%">по</prosody>
+        <prosody volume="soft" rate="0.6" pitch="-20%">радиоэфИру</prosody><break time="80ms"/>
+        <prosody volume="soft" rate="0.95" pitch="-40%">всё те же</prosody>
+        <prosody volume="soft" rate="0.85" pitch="-50%">люди.</prosody><break time="400ms"/>
+    </p>
+    <p>
+        <prosody volume="soft" rate="0.7" pitch="-30%">из пыли</prosody>
+        <prosody volume="soft" rate="0.9" pitch="-40%">и</prosody>
+        <prosody volume="soft" rate="0.7" pitch="-50%">бетона</prosody><break time="400ms"/>
+        <prosody volume="soft" rate="0.7" pitch="-50%">смешались наши души.</prosody><break time="400ms"/>
+        <prosody volume="soft" rate="0.8" pitch="-40%">не в силах</prosody><break time="3ms"/>
+        <prosody volume="soft" rate="0.9" pitch="-40%">что-то строить,</prosody><break time="400ms"/>
+        <prosody volume="soft" rate="0.8" pitch="-50%">способны только</prosody>
+        <prosody volume="soft" rate="0.8" pitch="-60%">рушить.</prosody><break time="400ms"/>
+    </p>
+    <p>
+        <prosody volume="soft" rate="0.8" pitch="-30%">Когда</prosody>
+        <prosody volume="soft" rate="0.8" pitch="-30%">последний</prosody><break time="1ms"/>
+        <prosody volume="soft" rate="0.9" pitch="-40%">раз</prosody>
+        <prosody volume="soft" rate="0.8" pitch="-50%">мы</prosody><break time="400ms"/>
+        <prosody volume="soft" rate="0.8" pitch="-30%">внимали</prosody>
+        <prosody volume="soft" rate="0.9" pitch="-50%">вкус</prosody>
+        <prosody volume="soft" rate="0.7" pitch="-40%">свободы</prosody><break time="400ms"/>
+        <prosody volume="soft" rate="0.8" pitch="-30%">И всё же</prosody><break time="1ms"/>
+        <prosody volume="soft" rate="0.8" pitch="-45%">остаемся</prosody>
+        <prosody volume="soft" rate="0.8" pitch="-50%">здесь... </prosody><break time="400ms"/>
+    </p>
+
+</voice>
+</speak>

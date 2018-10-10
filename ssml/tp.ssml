@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<speak xmlns="http://www.w3.org/2001/10/synthesis" version="1.1" xml:lang="ru">
+<voice gender="male" age="20">
+
+    <p>
+        <prosody volume="soft" rate="0.8" pitch="-30%">Когда</prosody>
+        <prosody volume="soft" rate="0.8" pitch="-30%">последний</prosody><break time="1ms"/>
+        <prosody volume="soft" rate="0.9" pitch="-40%">раз</prosody>
+        <prosody volume="soft" rate="0.8" pitch="-50%">мы</prosody><break time="400ms"/>
+        <prosody volume="soft" rate="0.8" pitch="-30%">внимали</prosody>
+        <prosody volume="soft" rate="0.9" pitch="-50%">вкус</prosody>
+        <prosody volume="soft" rate="0.7" pitch="-40%">свободы</prosody><break time="400ms"/>
+        <prosody volume="soft" rate="0.8" pitch="-30%">И всё же</prosody><break time="1ms"/>
+        <prosody volume="soft" rate="0.8" pitch="-45%">остаемся</prosody>
+        <prosody volume="soft" rate="0.8" pitch="-50%">здесь... </prosody><break time="400ms"/>
+    </p>
+
+</voice>
+</speak>
