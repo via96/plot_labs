@@ -1,0 +1,36 @@
+from lxml import etree
+from pyfreeling import Analyzer
+from os import path
+import subprocess
+import bs4
+
+
+class TextAnalyzer:
+
+    def __init__(self, pathToTextFile, language='ru'):
+        self._configFolder = '/usr/share/freeling/config/'
+        self._pathToTextFile = pathToTextFile
+        self._language = language
+        if not path.exists(self._pathToTextFile):
+            print('Wrong path to text file.', self._pathToTextFile)
+            raise FileNotFoundError
+
+    
+    def start(self):
+        self.xml = self.parseText()
+
+
+    def parseText(self):
+        p = subprocess.Popen(
+            'analyze -f ' + path.join(self._configFolder, self._language + '.cfg') + ' --output xml < ' + self._pathToTextFile,
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        r = p.communicate()
+        return r[0]
+
+
+    def analyzeXML(self, xml):
+        doc = bs4.BeautifulSoup(self._xml, 'html.parser')
+
+
+if __name__ == '__name__':
+    pass
