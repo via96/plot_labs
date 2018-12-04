@@ -28,10 +28,10 @@ class Number(MegaEnum):
 
 class Token:
     
-    def __init__(self, form, lemma, sentenceId, tag):
+    def __init__(self, form: str, lemma: str, sentenceId: int, tag: str):
         self.sentenceId = sentenceId
-        self.form = form
-        self.lemma = lemma
+        self.form = form.lower()
+        self.lemma = lemma.lower()
         tp = TagParser(tag)
         self.category = tp.getCategory()
         self.number = tp.getNum()

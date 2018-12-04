@@ -3,6 +3,7 @@ from pyfreeling import Analyzer
 from os import path
 import subprocess
 import bs4
+from token_parser import FreelingStructParser
 
 
 class TextAnalyzer:
@@ -18,6 +19,12 @@ class TextAnalyzer:
     
     def start(self):
         self.xml = self.parseText()
+        doc = bs4.BeautifulSoup(self.xml, 'html.parser')
+        parser = FreelingStructParser(doc)
+        res = parser.getPopularPhrases(5)
+        if res != None:
+            for val in res:
+                print(val)
 
 
     def parseText(self):
@@ -27,9 +34,6 @@ class TextAnalyzer:
         r = p.communicate()
         return r[0]
 
-
-    def analyzeXML(self, xml):
-        doc = bs4.BeautifulSoup(self._xml, 'html.parser')
 
 
 if __name__ == '__name__':
