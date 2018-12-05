@@ -1,9 +1,10 @@
 from lxml import etree
 from pyfreeling import Analyzer
 from os import path
+from token_parser import FreelingStructParser
 import subprocess
 import bs4
-from token_parser import FreelingStructParser
+
 
 
 class TextAnalyzer:
@@ -36,5 +37,6 @@ class TextAnalyzer:
 
 
 
-if __name__ == '__name__':
-    pass
+if __name__ == '__main__':
+    a = TextAnalyzer('text')
+    a.start()

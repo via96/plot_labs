@@ -1,6 +1,5 @@
 from globals import Token, Category, Gender, Number
 
-
 class FreelingStructParser:
     
     def __init__(self, text_info):
@@ -30,10 +29,10 @@ class FreelingStructParser:
             for verb in self.verbs.values():
                 for noun in self.nouns.values():
                     if (verb.sentenceId == noun.sentenceId and verb.gender == noun.gender and verb.number == noun.number):
-                        if verb not in self.word_series.keys():
-                            self.word_series[verb] = {}
-                        if noun.lemma in self.word_series[verb].keys():
-                            self.word_series[verb].append(noun)
+                        if verb.lemma not in self.word_series.keys():
+                            self.word_series[verb.lemma] = {}
+                        if noun.lemma in self.word_series[verb.lemma].keys():
+                            self.word_series[verb.lemma].append(noun)
 
         self.ratingVerb = {}
         self.ratingNoun = {}
@@ -59,8 +58,9 @@ class FreelingStructParser:
 
     
     def getPopularPhrases(self, amount):
-        res = list(str)
-        for verb in self.ratingVerb.values().reverse():
+        res = list()
+        # for verb in list(self.ratingVerb.values()).reverse():
+        for verb in list(reversed(list(self.ratingVerb.values()))):
             cur_nouns = self.getPopularNoun(verb.lemma, 1)
             if cur_nouns != None:
                 for noun in cur_nouns:
