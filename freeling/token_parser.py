@@ -38,9 +38,6 @@ class FreelingStructParser:
         self.phrases = {} # {noun_lemma : [sentence]}
         self.noun_rating = []
 
-        self.word_series = {} # {verb_lemma : {'count' : #, 'nouns' : {noun_lemma : #}}}
-        self.phraseByNouns = {} # {noun_lemma : { 'cnt' : #, 'verbs' : { verb_lemma : # }}}
-
         for s in sentences:
             tokens = s.find_all('token')
             for token_info in tokens:
