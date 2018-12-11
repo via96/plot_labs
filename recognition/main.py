@@ -24,6 +24,8 @@ def newTrainData():
 
     return allDigits, targets
 
+
+
 if __name__ == '__main__':
     train_parser = ImageParser("train_img.png")
 
@@ -49,7 +51,7 @@ if __name__ == '__main__':
 
     print("Without PCA")
     for kNeares in range(1, 5):
-        # break
+        break
         success = 0
         total = 0
         for t in range(3):
