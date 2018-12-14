@@ -7,13 +7,6 @@ from analyzer import Analazer
 from timer import Timer
 
 
-def getResponses(num_amount):
-    res = []
-    for num in range(10):
-        for i in range(num_amount):
-            res.append(num)
-    return res
-
 
 def trueRecogAmount(result, data):
     amount = 0
@@ -39,36 +32,36 @@ if __name__ == '__main__':
     targetImgPath = 'test1.png'
     real_data = [1, 2, 5, 3, 7, 4]
 
-    train_parser = ImageParser("train_img.png")
+    train_parser = ImageParser("digits_inverse3.png")
 
-    responses = getResponses(500)
+    responses = ImageParser.getResponses(500)
 
-    print('01')
+    print('00')
     trainData_grid, responses_grid = train_parser.prepareImageNew()
+    print('01')
+    trainData_mser = train_parser.MSER()
     print('02')
-    trainData_mser, responses_mser = train_parser.MSER()
-
     timer = Timer()
+
+    timer.start()
+    res_grid = Analazer.analyzeWithoutKPCA(trainData_grid, responses_grid, targetImgPath)
+    time_grid = timer.stop()
 
     print('1')
     timer.start()
-    res_grid = Analazer.analyzeWithoutKPCA(trainData_grid, responses, targetImgPath)
-    time_grid = timer.stop()
+    res_mser = Analazer.analyzeWithoutKPCA(trainData_mser, responses_grid, targetImgPath)
+    time_mser = timer.stop()
 
     print('2')
     timer.start()
-    res_mser = Analazer.analyzeWithoutKPCA(trainData_mser, responses, targetImgPath)
-    time_mser = timer.stop()
+    res_grid_kpca = Analazer.analyzeWithKPCA(trainData_grid, responses_grid, targetImgPath)
+    time_grid_kpca = timer.stop()
 
     print('3')
     timer.start()
-    res_grid_kpca = Analazer.analyzeWithKPCA(trainData_grid, responses, targetImgPath)
-    time_grid_kpca = timer.stop()
-
-    print('4')
-    timer.start()
-    res_mser_kpca = Analazer.analyzeWithKPCA(trainData_mser, responses, targetImgPath)
+    res_mser_kpca = Analazer.analyzeWithKPCA(trainData_mser, responses_grid, targetImgPath)
     time_mser_kpca = timer.stop()
+    print('4')
 
     printResult('Строк и столбцов без KPCA', res_grid, time_grid, trueRecogAmount(res_grid, real_data))
     printResult('MSER без KPCA', res_mser, time_mser, trueRecogAmount(res_mser, real_data))

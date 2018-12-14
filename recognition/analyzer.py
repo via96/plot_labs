@@ -75,18 +75,20 @@ class Analazer:
         knn = cv2.ml.KNearest_create()
         responses = numpy.array(responses)
 
-        knn.train(numpy.array(trainData, dtype=numpy.float32), cv2.ml.ROW_SAMPLE, responses)
+        num_train_data = numpy.array(trainData, dtype=numpy.float32)
 
-        temp = numpy.array(trainData, dtype=numpy.float32).reshape(len(trainData), -1)
-        kpca = KernelPCA(n_components=30, kernel='rbf', gamma=1e-8)
+        knn.train(num_train_data, cv2.ml.ROW_SAMPLE, responses)
 
-        kpca.fit(temp)
+        # temp = numpy.array(trainData, dtype=numpy.float32).reshape(len(trainData), -1)
+        # kpca = KernelPCA(n_components=30, kernel='rbf', gamma=1e-8)
 
-        trainData = kpca.transform(temp)
+        # kpca.fit(temp)
+
+        # trainData = kpca.transform(temp)
 
 
         # knn.train(numpy.array(trainData, dtype=numpy.float32), cv2.ml.ROW_SAMPLE, responses)
-        knn.train(trainData, cv2.ml.ROW_SAMPLE, responses)
+        # knn.train(trainData, cv2.ml.ROW_SAMPLE, responses)
 
         for i in range(len(checkData)):
             checkData[i] = numpy.array(checkData[i]).reshape(1, -1)
@@ -99,6 +101,9 @@ class Analazer:
 
         resultsList = []
         for item in test:
+            train_shape = num_train_data.shape
+            num_shape = numpy.array(item, dtype=numpy.float32).shape
+            num_reshape = numpy.array(item, dtype=numpy.float32).reshape(-1, 17*17).reshape(1,-1).shape
             res, results, neighbours ,dist = knn.findNearest(numpy.array(item, dtype=numpy.float32).reshape(-1, 17*17).reshape(1,-1), 3)
             resultsList.append(results[0][0])
             # print( "result: ", results,"\n")
