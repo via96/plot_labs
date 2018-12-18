@@ -44,7 +44,7 @@ class Analazer:
         # test = prepareImage(os.path.join(curFolder, 'test_inverse2.png'))
 
         res_parser = ImageParser(pathToImage)
-        test = res_parser.prepareImageNew(True)
+        test, _ = res_parser.prepareImageNew(True)
         # test = prepareImageNew(os.path.join(curFolder, 'test5.png'), False, False, saveToFiles=True)
 
         resultsList = []
@@ -96,7 +96,7 @@ class Analazer:
         # test = prepareImage(os.path.join(curFolder, 'test_inverse2.png'))
 
         res_parser = ImageParser(pathToImage)
-        test = res_parser.prepareImageNew(True)
+        test, _ = res_parser.prepareImageNew(True)
         # test = prepareImageNew(os.path.join(curFolder, 'test5.png'), False, False, saveToFiles=True)
 
         resultsList = []

@@ -10,7 +10,7 @@ from timer import Timer
 
 def trueRecogAmount(result, data):
     amount = 0
-    if len(result) < data:
+    if len(result) < len(data):
         for i in range(len(result)):
             if result[i] == data[i]:
                 amount += 1
@@ -22,7 +22,7 @@ def trueRecogAmount(result, data):
 
     
 def printResult(method_name, values, time, true_amount):
-    print('\nМетод: ' + method_name + ' | Время выполнения: ' + time + ' | Верных результатов: ' + true_amount)
+    print('\nМетод: ' + method_name + ' | Время выполнения: ' + str(time) + ' | Верных результатов: ' + str(true_amount))
     print("Значения: " + str(values))
 
 
@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
     print('1')
     timer.start()
-    res_mser = Analazer.analyzeWithoutKPCA(trainData_mser, responses_grid, targetImgPath)
+    res_mser = Analazer.analyzeWithoutKPCA(trainData_mser, responses, targetImgPath)
     time_mser = timer.stop()
 
     print('2')
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
     print('3')
     timer.start()
-    res_mser_kpca = Analazer.analyzeWithKPCA(trainData_mser, responses_grid, targetImgPath)
+    res_mser_kpca = Analazer.analyzeWithKPCA(trainData_mser, responses, targetImgPath)
     time_mser_kpca = timer.stop()
     print('4')
 
