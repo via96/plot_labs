@@ -2,16 +2,17 @@ import time
 
 class Timer:
 
+    def __init__(self):
+        self.start_time = 0
+        self.isActive = False
+
     def start(self):
-        # self.start = time.time()
-        # self.isActive = True
-        pass
+        self.start_time = time.time()
+        self.isActive = True
 
     
     def stop(self):
+        if self.isActive:
+            self.isActive = False
+            return time.time() - self.start_time
         return 0
-        # if self.isActive:
-        #     self.isActive = False
-        #     return time.time() - self.start
-        # else:
-        #     return 0
