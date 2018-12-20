@@ -29,37 +29,38 @@ def printResult(method_name, values, time, true_amount):
 if __name__ == '__main__':
 
     print('start')
-    targetImgPath = 'test1.png'
-    real_data = [1, 2, 5, 3, 7, 4]
+    targetImgPath = 'test2.png'
+    real_data_1 = [1, 2, 5, 3, 7, 4]
+    real_data = [1, 8, 7, 5, 2, 0, 3, 4, 6, 7]
 
     train_parser = ImageParser("digits_inverse3.png")
 
     responses = ImageParser.getResponses(500)
 
     print('00')
-    trainData_grid, responses_grid = train_parser.prepareImageNew()
+    train_data_grid, responses_grid = train_parser.gridParse()
     print('01')
-    trainData_mser = train_parser.MSER()
+    train_data_mser = train_parser.MSER()
     print('02')
     timer = Timer()
 
     timer.start()
-    res_grid = Analazer.analyzeWithoutKPCA(trainData_grid, responses_grid, targetImgPath)
+    res_grid = Analazer.analyzeWithoutKPCA(train_data_grid, responses_grid, targetImgPath)
     time_grid = timer.stop()
 
     print('1')
     timer.start()
-    res_mser = Analazer.analyzeWithoutKPCA(trainData_mser, responses, targetImgPath)
+    res_mser = Analazer.analyzeWithoutKPCA(train_data_mser, responses, targetImgPath)
     time_mser = timer.stop()
 
     print('2')
     timer.start()
-    res_grid_kpca = Analazer.analyzeWithKPCA(trainData_grid, responses_grid, targetImgPath)
+    res_grid_kpca = Analazer.analyzeWithKPCA(train_data_grid, responses_grid, targetImgPath)
     time_grid_kpca = timer.stop()
 
     print('3')
     timer.start()
-    res_mser_kpca = Analazer.analyzeWithKPCA(trainData_mser, responses, targetImgPath)
+    res_mser_kpca = Analazer.analyzeWithKPCA(train_data_mser, responses, targetImgPath)
     time_mser_kpca = timer.stop()
     print('4')
 
