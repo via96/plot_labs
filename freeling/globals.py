@@ -126,6 +126,9 @@ class Token:
     def __lt__(self, other):
         return self.lemma < other.lemma
 
+    def __hash__(self):
+        return hash(self.lemma)
+
 
 class Phrase:
     
